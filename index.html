@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoopWell</title>
+    <link href="https://fonts.googleapis.com/icon?family=Materials+Icons" rel="stylesheet">
+    <link rel ="stylesheet" href = "styles.css">
+</head>
+<body>
+    <header>
+        <h1 id = "app-name">LoopWell</h1>
+        
+        <div id="help-container">
+            <span id="help-icon">?</span> 
+            <div id="help-popup">
+              <strong>How it works:</strong><br><br>
+              Press the <span class="green-text">green</span> microphone button or press spacebar to begin.  
+              When it turns <span class="red-text">red</span>, you're recording an overdub.
+              Click again to start your audio.<br><br>
+              The overdub is recorded on a <strong>loop</strong>—perfect for layering sounds.<br><br>
+              Use the metronome below to stay in time and select a time signature to guide your practice.<br><br>
+              <div id="mic-warning">
+                ⚠️ This app records through your microphone. To avoid feedback and noise loops, please use headphones while recording.
+              </div>
+            </div>
+          </div>
+          
+    </header>
+    <main>
+
+        <button class = "mic-toggle" id="mic"></button>
+        <audio class = "playback" controls></audio>
+        <div id="metronome_dot" class="metronome-dot"></div>
+        <button id = "metronome-start">Start Metronome</button>
+        <button id = "metronome-stop">Stop Metronome</button>
+
+
+        
+        <!-- BPM CONTROLLER -->
+        <label for = "bpm" id ="bpm-label"> BPM: 140 </label>
+        <input type="range" id = "bpm" min = "40" max  = "200" value = "140" step="1">
+
+
+        <!-- BEATS PER MEASURE-->
+        <label for="beatsPerMeasure" id="beatsPerMeasureLabel"> Beats per Measure: 4</label>
+        <input type="range" id="beatsPerMeasure" min="1" max ="12" value="4">
+
+        <!-- METRONOME VOLUME-->
+        <label for="volume">Metronome Volume: </label>
+        <input type="range" id="volume" min="0" max="1" value="1" step="0.01">
+
+        <div class="select-container">
+            <label for="time-sig">Choose a pre-set Time Signature:</label>
+            <select id="time-sig">
+                <option value="4/4" data-bpm="120">4/4 - Standard Time</option>
+                <option value="3/4" data-bpm="120">3/4 - Waltz</option>
+                <option value="6/8" data-bpm="90">6/8 - Compound Time</option>
+                <option value="5/4" data-bpm="100">5/4 - Quirky Time</option>
+                <option value="7/8" data-bpm="110">7/8 - Complex Time</option>
+            </select>
+        </div>
+
+    </main>
+
+
+    <script src = "main.js" type = "module"></script>
+
+</body>
+</html>
